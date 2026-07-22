@@ -1,3 +1,5 @@
+import { defaultOptions } from "./defaults.js";
+
 export default class ScrollReveal {
   // Initialize ScrollReveal instance with user configuration
   constructor(selector, options = {}) {
@@ -11,13 +13,21 @@ export default class ScrollReveal {
   }
 
   // Start ScrollReveal initialization process
-  init() {}
+  init() {
+    this.validate();
+    this.mergeOptions();
+  }
 
   // Validate user inputs and configuration options
   validate() {}
 
   // Merge default settings with user-provided options
-  mergeOptions() {}
+  mergeOptions() {
+    this.options = {
+      ...defaultOptions,
+      ...this.options,
+    };
+  }
 
   // Collect target elements from the DOM using the provided selector
   collectElements() {}
