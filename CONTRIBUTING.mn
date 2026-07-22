@@ -1,0 +1,40 @@
+# Contributing
+
+Thank you for your interest in contributing to **Emad UI Kit**.
+
+The goal of this project is to build reusable, lightweight, and well-documented UI components and utilities for modern web applications.
+
+## Development Workflow
+
+When adding a new feature, please follow these steps:
+
+* [ ] Design the public API.
+* [ ] Update or create the feature documentation in `docs/`.
+* [ ] Implement the feature.
+* [ ] Add a demo showing how to use it.
+* [ ] Test the feature in supported browsers.
+* [ ] Refactor the code if necessary.
+* [ ] Update the `README.md` if the public API changes.
+* [ ] Commit using Conventional Commits.
+* [ ] Open a Pull Request for review.
+
+## Code Style
+
+* Write clean, readable, and reusable code.
+* Keep the public API simple and consistent.
+* Avoid breaking existing APIs whenever possible.
+* Document all public features.
+
+## Commit Messages
+
+Examples:
+
+```text
+feat: add ScrollReveal component
+fix: correct animation timing
+docs: update ScrollReveal documentation
+refactor: simplify observer logic
+test: add ScrollReveal tests
+```
+
+Thank you for helping improve Emad UI Kit!
