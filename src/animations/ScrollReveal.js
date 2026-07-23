@@ -19,7 +19,19 @@ export default class ScrollReveal {
   }
 
   // Validate user inputs and configuration options
-  validate() {}
+  validate() {
+    if (!this.selector) {
+      throw new Error("ScrollReveal requires a selector");
+    }
+
+    if (typeof this.selector !== "string") {
+      throw new Error("ScrollReveal selector must be a string");
+    }
+
+    if (typeof this.options !== "object" || this.options === null) {
+      throw new Error("ScrollReveal options must be an object");
+    }
+  }
 
   // Merge default settings with user-provided options
   mergeOptions() {
