@@ -18,6 +18,8 @@ export default class ScrollReveal {
     this.mergeOptions();
     this.collectElements();
     this.applyInitialStyles();
+    this.createObserver();
+    this.observeElements();
   }
 
   // Validate user inputs and configuration options
@@ -90,7 +92,18 @@ export default class ScrollReveal {
   }
 
   // Create IntersectionObserver to detect viewport visibility changes
-  createObserver() {}
+  createObserver() {
+    this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
+      threshold: this.options.threshold,
+    });
+  }
+
+  // Observe all collected elements for visibility changes
+  observeElements() {
+    this.elements.forEach((element) => {
+      this.observer.observe(element);
+    });
+  }
 
   // Handle intersection changes and trigger reveal animations
   handleIntersect() {}
