@@ -16,6 +16,7 @@ export default class ScrollReveal {
   init() {
     this.validate();
     this.mergeOptions();
+    this.collectElements();
   }
 
   // Validate user inputs and configuration options
@@ -42,7 +43,17 @@ export default class ScrollReveal {
   }
 
   // Collect target elements from the DOM using the provided selector
-  collectElements() {}
+  collectElements() {
+    const elements = document.querySelectorAll(this.selector);
+
+    this.elements = [...elements];
+
+    if (this.elements.length === 0) {
+      console.warn(
+        `ScrollReveal: No elements found for selector ${this.selector}`,
+      );
+    }
+  }
 
   // Apply initial animation state before elements are revealed
   applyInitialStyles() {}
