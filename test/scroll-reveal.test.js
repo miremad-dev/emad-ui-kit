@@ -1,7 +1,9 @@
 import ScrollReveal from "../src/animations/ScrollReveal.js";
 
 // Test 1: Valid selector
-const reveal = new ScrollReveal(".section");
+const reveal = new ScrollReveal(".section", {
+  distance: "100px",
+});
 
 console.log(reveal);
 
