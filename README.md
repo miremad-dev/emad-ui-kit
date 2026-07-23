@@ -38,13 +38,28 @@ npm install emad-ui-kit
 
 ## Quick Start
 
+## Basic Usage
+
 ```javascript
 import { ScrollReveal } from "emad-ui-kit";
 
 new ScrollReveal(".section");
 ```
 
----
+## Configuration Example
+
+```javascript
+import { ScrollReveal } from "emad-ui-kit";
+
+new ScrollReveal(".section", {
+  origin: "bottom",
+  distance: "80px",
+  duration: 1200,
+  delay: 300,
+  threshold: 0.2,
+  once: true,
+});
+```
 
 ## Documentation
 
