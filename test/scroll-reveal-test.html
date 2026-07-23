@@ -12,9 +12,14 @@
     <script type="module">
       import ScrollReveal from "../src/animations/ScrollReveal.js";
 
-      const reveal = new ScrollReveal(".section");
+      const reveal = new ScrollReveal(".section", {
+        origin: "bottom",
+        distance: "100px",
+        duration: 800,
+        once: true,
+      });
 
-      console.log(reveal.elements);
+      console.log(reveal);
     </script>
   </body>
 </html>

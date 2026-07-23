@@ -88,11 +88,20 @@ export default class ScrollReveal {
       element.style.opacity = "0";
 
       element.style.transform = transform;
+
+      element.style.transition = `
+      opacity ${this.options.duration}ms ease,
+      transform ${this.options.duration}ms ease
+    `;
     });
   }
 
   // Create IntersectionObserver to detect viewport visibility changes
   createObserver() {
+    if (!window.IntersectionObserver) {
+      throw new Error("ScrollReveal requires IntersectionObserver support");
+    }
+
     this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
       threshold: this.options.threshold,
     });
@@ -106,11 +115,29 @@ export default class ScrollReveal {
   }
 
   // Handle intersection changes and trigger reveal animations
-  handleIntersect() {}
+  handleIntersect(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        this.reveal(entry.target);
+      }
+    });
+  }
 
   // Reveal target element by applying final animation state
-  reveal() {}
+  reveal(element) {
+    element.style.opacity = "1";
+
+    element.style.transform = "translate(0)";
+  }
 
   // Clean up observer and release resources
-  destroy() {}
+  destroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    this.elements = [];
+
+    this.observer = null;
+  }
 }
