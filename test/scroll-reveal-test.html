@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ScrollReveal Test</title>
+  </head>
+
+  <body>
+    <section class="section">Section 1</section>
+
+    <section class="section">Section 2</section>
+
+    <script type="module">
+      import ScrollReveal from "../src/animations/ScrollReveal.js";
+
+      const reveal = new ScrollReveal(".section");
+
+      console.log(reveal.elements);
+    </script>
+  </body>
+</html>
