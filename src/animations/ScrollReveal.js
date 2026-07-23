@@ -17,6 +17,7 @@ export default class ScrollReveal {
     this.validate();
     this.mergeOptions();
     this.collectElements();
+    this.applyInitialStyles();
   }
 
   // Validate user inputs and configuration options
@@ -55,8 +56,38 @@ export default class ScrollReveal {
     }
   }
 
+  // Calculate initial transform position before reveal animation
+  getInitialTransform() {
+    const { origin, distance } = this.options;
+
+    switch (origin) {
+      case "top":
+        return `translateY(-${distance})`;
+
+      case "bottom":
+        return `translateY(${distance})`;
+
+      case "left":
+        return `translateX(-${distance})`;
+
+      case "right":
+        return `translateX(${distance})`;
+
+      default:
+        return "translateY(0)";
+    }
+  }
+
   // Apply initial animation state before elements are revealed
-  applyInitialStyles() {}
+  applyInitialStyles() {
+    const transform = this.getInitialTransform();
+
+    this.elements.forEach((element) => {
+      element.style.opacity = "0";
+
+      element.style.transform = transform;
+    });
+  }
 
   // Create IntersectionObserver to detect viewport visibility changes
   createObserver() {}
