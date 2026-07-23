@@ -4,6 +4,14 @@
   "description": "A lightweight UI toolkit for modern web applications.",
   "type": "module",
   "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "echo \"No tests yet\""
   },
@@ -12,8 +20,17 @@
     "javascript",
     "animation",
     "scroll",
+    "scrollreveal",
     "frontend"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miremad-dev/emad-ui-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miremad-dev/emad-ui-kit/issues"
+  },
+  "homepage": "https://github.com/miremad-dev/emad-ui-kit#readme",
   "author": "miremad-dev",
   "license": "MIT"
 }
